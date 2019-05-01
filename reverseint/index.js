@@ -25,6 +25,9 @@ function reverseInt(num) {
     for (let i = digits.length - 1; i > 0; i--) {
         reversed = (reversed * 10) + digits[i - 1];
     }
+    if (num < 0) {
+        reversed = -1 * reversed;
+    }
     return reversed;
 }
 
