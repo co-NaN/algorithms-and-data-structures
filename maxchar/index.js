@@ -5,7 +5,6 @@
 // maxChar("abcccccccd") === "c"
 // maxChar("apple 1231111") === "1"
 
-// rough draft of first solution
 function maxChar(str) {
     let frequencies = {};
     let max = 1;
