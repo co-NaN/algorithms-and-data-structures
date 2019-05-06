@@ -41,6 +41,15 @@ function chunk2(array, size) {
     return chunked;
 }
 
-console.log(chunk2([1, 2, 3, 4], 2));
+// JS specific solution
+function chunk3(array, size) {
+    const chunked = [];
+    let index = 0;
+    while (index < array.length) {
+        chunked.push(array.slice(index, index + size));
+        index += size;
+    }
+    return chunked;
+}
 
 module.exports = chunk;
