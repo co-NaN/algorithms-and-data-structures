@@ -44,12 +44,14 @@ function anagrams3(stringA, stringB) {
     return string1Sum === string2Sum;
 }
 
+// sorting solution
 function anagrams2(stringA, stringB) {
-    const sorted1 = stringA.sort();
-    const sorted2 = stringB.sort();
+    const sorted1 = stringA.replace(/[^\w]/g, "").toLowerCase().split("").sort().join();
+    const sorted2 = stringB.replace(/[^\w]/g, "").toLowerCase().split("").sort().join();
     return sorted1 === sorted2;
 }
 
+// map comparison solution
 function anagrams(stringA, stringB) {
     let result = false;
     const prependedString1 = prepend(stringA);
