@@ -14,7 +14,6 @@ function anagrams2(stringA, stringB) {
     return sorted1 === sorted2;
 }
 
-// naive solution
 function anagrams(stringA, stringB) {
     let result = false;
     const prependedString1 = prepend(stringA);
