@@ -23,8 +23,8 @@ function anagrams3(stringA, stringB) {
 
     for (let char of  string1) {
         if (!charValues[char]) {
-            charValues[char] = start + 5;
-            start = start + 5;
+            charValues[char] = start++;
+            start = start++;
             string1Sum += start;
         } else {
             string1Sum += charValues[char];
