@@ -10,12 +10,12 @@
 
 function anagrams(stringA, stringB) {
     let result = false;
-    const string1 = prepend(stringA);
-    const string2 = prepend(stringB);
-    if (string1.length === string2.length) {
-        const frequencies1 = toObjectWithFrequencies(string1);
-        const frequencies2 = toObjectWithFrequencies(string2);
-        result = haveSameFrequencies(frequencies1, frequencies2);
+    const prependedString1 = prepend(stringA);
+    const prependedString2 = prepend(stringB);
+    if (prependedString1.length === prependedString2.length) {
+        const charFrequencies1 = toObjectWithFrequencies(prependedString1);
+        const charFrequencies2 = toObjectWithFrequencies(prependedString2);
+        result = haveSameFrequencies(charFrequencies1, charFrequencies2);
     }
     return result;
 }
@@ -27,24 +27,18 @@ function prepend(str) {
 
 // creates an object from a string which contains char frequencies
 function toObjectWithFrequencies(str) {
-    const frequencies = {};
+    const charFrequencies = {};
     for (let char of str) {
-        if (frequencies.hasOwnProperty(char)) {
-            frequencies[char]++;
-        } else {
-            frequencies[char] = 1;
-        }
+        charFrequencies[char] = charFrequencies[char]++ || 1;
     }
-    return frequencies;
+    return charFrequencies;
 }
 
 // checks if two objects containing character frequencies has the same values
-function haveSameFrequencies(object1, object2) {
-    for (let key in object1) {
-        if (object2.hasOwnProperty(key)) {
-            if (object2[key] !== object1[key]) {
-                return false;
-            }
+function haveSameFrequencies(charFrequencies1, charFrequencies2) {
+    for (let char in charFrequencies1) {
+        if (charFrequencies2[char] !== charFrequencies1[char]) {
+            return false;
         }
     }
     return true;
