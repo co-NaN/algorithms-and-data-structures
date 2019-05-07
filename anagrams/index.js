@@ -8,6 +8,13 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
+function anagrams2(stringA, stringB) {
+    const sorted1 = stringA.sort();
+    const sorted2 = stringB.sort();
+    return sorted1 === sorted2;
+}
+
+// naive solution
 function anagrams(stringA, stringB) {
     let result = false;
     const prependedString1 = prepend(stringA);
