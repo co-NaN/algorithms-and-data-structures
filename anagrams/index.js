@@ -36,6 +36,8 @@ function anagrams3(stringA, stringB) {
         let value = charValues[char];
         if (value) {
             string2Sum += value;
+        } else {
+            return false;
         }
     }
 
