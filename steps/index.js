@@ -17,7 +17,6 @@
 //       '### '
 //       '####'
 
-// WIP
 function steps(n) {
     let spaces = '';
     let symbols = '';
@@ -28,7 +27,7 @@ function steps(n) {
     }
 
     for (let i = 0; i < n; i++) {
-        console.log(symbols.slice(0, i) + spaces.slice(i));
+        console.log(symbols.slice(0, i + 1) + spaces.slice(i + 1));
     }
 }
 
