@@ -17,7 +17,7 @@
 // initial, very convoluted solution
 function pyramid(n) {
     let spaces = '';
-    let tilde = '#';
+    let pounds = '#';
     let row = '';
     let rowLength = n + (n - 1);
     let lo = Math.floor(rowLength / 2);
@@ -25,7 +25,7 @@ function pyramid(n) {
     for (let i = 0; i < n; i++) {
         for (let j = 0; j < rowLength; j++) {
             if (j === lo) {
-                row += spaces + tilde;
+                row += spaces + pounds;
                 spaces = '';
                 j = hi;
             } else {
@@ -35,7 +35,7 @@ function pyramid(n) {
         row += spaces;
         console.log(row);
         row = '';
-        tilde += '##';
+        pounds += '##';
         spaces = '';
         ++hi;
         --lo;

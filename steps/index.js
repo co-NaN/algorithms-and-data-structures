@@ -18,18 +18,33 @@
 //       '####'
 
 function steps(n) {
-    let symbols = '#';
+    for (let row = 0; row < n; row++) {
+        let stair = '';
+        for (let col = 0; col < n; col++) {
+            if (col <= row) {
+                stair += '#';
+            } else {
+                stair += ' ';
+            }
+        }
+        console.log(stair);
+    }
+}
+
+function steps3(n) {
+    let pounds = '#';
     let spaces = '';
     for (let i = 0; i < n; i++) {
         for (let j = i + 1; j < n; j++) {
             spaces += ' ';
         }
-        console.log(symbols + spaces);
+        console.log(pounds + spaces);
         spaces = '';
-        symbols += '#';
+        pounds += '#';
     }
 }
 
+// initial, very slow solution
 function steps2(n) {
     let spaces = '';
     let symbols = '';
