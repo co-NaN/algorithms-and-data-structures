@@ -18,6 +18,19 @@
 //       '####'
 
 function steps(n) {
+    let symbols = '#';
+    let spaces = '';
+    for (let i = 0; i < n; i++) {
+        for (let j = i + 1; j < n; j++) {
+            spaces += ' ';
+        }
+        console.log(symbols + spaces);
+        spaces = '';
+        symbols += '#';
+    }
+}
+
+function steps2(n) {
     let spaces = '';
     let symbols = '';
 
