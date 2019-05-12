@@ -8,41 +8,6 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-// a slightly wonkier solution using checksum
-function anagrams3(stringA, stringB) {
-    const charValues = {};
-    const string1 = prepend(stringA);
-    const string2 = prepend(stringB);
-
-    if (string1.length !== string2.length) {
-        return false;
-    }
-
-    let start = 0;
-    let string1Sum = 0;
-
-    for (let char of  string1) {
-        if (!charValues[char]) {
-            charValues[char] = ++start;
-            string1Sum += start;
-        } else {
-            string1Sum += charValues[char];
-        }
-    }
-
-    let string2Sum = 0;
-    for (let char of string2) {
-        let value = charValues[char];
-        if (value) {
-            string2Sum += value;
-        } else {
-            return false;
-        }
-    }
-
-    return string1Sum === string2Sum;
-}
-
 // sorting solution
 function anagrams2(stringA, stringB) {
     const sorted1 = stringA.replace(/[^\w]/g, "").toLowerCase().split("").sort().join();
