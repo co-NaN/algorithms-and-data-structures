@@ -17,6 +17,23 @@
 //       '### '
 //       '####'
 
+function stepsRecursive(n, row = 0, stair = '') {
+    if (n === row) {
+        return;
+    }
+    if (stair.length === n) {
+        console.log(stair);
+        return steps(n, ++row);
+    }
+    if (stair.length <= row) {
+        stair += '#';
+    } else {
+        stair += ' ';
+    }
+
+    stepsRecursive(n, row, stair);
+}
+
 function steps(n) {
     for (let row = 0; row < n; row++) {
         let stair = '';
