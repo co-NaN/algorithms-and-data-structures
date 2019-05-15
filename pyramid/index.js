@@ -14,6 +14,47 @@
 //       ' ### '
 //       '#####'
 
+// original solution
+function pyramidIterative(n) {
+    const mid = Math.floor((2 * n - 1) / 2);
+
+    for (let row = 0; row < n; row++) {
+        let level = '';
+        for (let col = 0; col <= 2 * n - 1; col++) {
+            if (mid - row <= col && mid + row >= col) {
+                level += '#';
+            } else {
+                level += ' ';
+            }
+        }
+        console.log(level);
+    }
+}
+
+// initial recursive solution
+function pyramidRecursive(n, row = 0, stair = '') {
+    if (n === row) {
+        return;
+    }
+
+    // start a new row
+    if (stair.length === n) {
+        console.log(stair.slice(1).split('').reverse().join('') + stair);
+        return pyramidRecursive(n, ++row, '');
+    }
+
+    // add to current row
+    if (stair.length <= row) {
+        stair += '#';
+    } else {
+        stair += ' ';
+    }
+
+    return pyramidRecursive(n, row, stair);
+}
+
+pyramidRecursive(4);
+
 // initial, very convoluted solution
 function pyramid(n) {
     let spaces = '';
