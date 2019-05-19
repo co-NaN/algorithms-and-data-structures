@@ -10,26 +10,6 @@
 
 function chunk(array, size) {
     const chunked = [];
-    let chunk = [];
-
-    if (array.length <= size) { // optimization
-        chunked.push(array);
-    } else {
-        for (let element of array) {
-            if (chunk.length === size) {
-                chunked.push(chunk);
-                chunk = [];
-            }
-            chunk.push(element);
-        }
-        chunked.push(chunk); // add the rest
-    }
-    return chunked;
-}
-
-// original solution
-function chunk2(array, size) {
-    const chunked = [];
     for (let element of array) {
         const lastChunk = chunked[chunked.length - 1];
         if (!lastChunk || lastChunk.length === size) {
@@ -40,16 +20,3 @@ function chunk2(array, size) {
     }
     return chunked;
 }
-
-// JS specific solution
-function chunk3(array, size) {
-    const chunked = [];
-    let index = 0;
-    while (index < array.length) {
-        chunked.push(array.slice(index, index + size));
-        index += size;
-    }
-    return chunked;
-}
-
-module.exports = chunk;

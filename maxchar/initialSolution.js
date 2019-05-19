@@ -22,5 +22,3 @@ function maxChar(str) {
     }
     return maxChar;
 }
-
-module.exports = maxChar;

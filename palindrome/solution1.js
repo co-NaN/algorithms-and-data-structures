@@ -14,12 +14,3 @@ function palindrome(str) {
 function reverse(str) {
     return str === '' ? '' : reverse(str.substring(1)) + str.charAt(0);
 }
-
-// succint, but inefficient solution, because every() makes unnecessary comparisons
-function palindrome2(str) {
-    return str.split('').every((char, i) =>  {
-        return char === str[str.length - i - 1];
-    });
-}
-
-module.exports = palindrome;
